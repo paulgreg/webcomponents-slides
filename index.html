@@ -14,30 +14,37 @@
 	</header>
 	<section class="slide cover" id="Cover"><div>
 		<h2>Web Components</h2>
+        <img class="logo" src="imgs/webcomponents-logo.svg">
 		<p><a href="http://paulgreg.me">Grégory Paul</a>, <a href="https://twitter.com/paulgreg">@paulgreg</a></p>
 		<img src="https://farm7.staticflickr.com/6100/6347011777_c6459ea07d_o_d.jpg" alt="">
-		<!--
-			To apply styles to the certain slides
-			set slide ID to get needed elements
-			-->
 		<style>
-			#Cover h2 {
-				margin:30px 0 0;
-				color:#FFF;
-				text-align:center;
-				font-size:70px;
-				}
-			#Cover p {
-				margin:10px 0 0;
-				text-align:center;
-				color:#FFF;
-				font-style:italic;
-				font-size:20px;
-				}
-				#Cover p a {
-					color:#FFF;
-					}
+			#Cover, #Cover h2, #Cover p, #Cover a { color:#FFF; text-align:center; }
+			#Cover h2 { margin: 0; font-size:70px; }
+			#Cover p { margin:10px 0 0; font-style:italic; font-size:24px; }
+            #Cover .logo { position: relative; width: 400px; margin: 40px 0;  }
 		</style>
+	</div></section>
+
+	<section class="slide" id="Summary"><div>
+		<h2>Sommaire</h2>
+        <ul>
+            <li>Web Component ?
+            <li>Templates
+            <li>Custom Elements
+            <li>HTML imports
+            <li>Shadow <abbr title="Document Object Model">DOM</abbr>
+            <li>Polymer
+            <li>X-Tags
+            <li>Démo
+            <li>Exemples
+        </ul>
+        <style>
+            #Summary ul { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
+        </style>
+	</div></section>
+
+	<section class="slide" id=""><div>
+		<h2>Web Component ?</h2>
 	</div></section>
 
 	<div class="progress"><div></div></div>
