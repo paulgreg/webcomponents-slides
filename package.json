@@ -1,27 +1,21 @@
 {
   "name": "webcomponents-slides",
-  "version": "0.0.1",
-  "description": "Slides about Web Components",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "bower": "^1.3.3"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/paulgreg/webcomponents-slides.git"
   },
-  "keywords": [
-    "slides",
-    "webcomponents"
+  "authors": [
+    "Grégory Paul <paulgreg@gmail.com>"
   ],
-  "author": "Grégory Paul",
-  "license": "Apache 2",
+  "license": "GPL",
   "bugs": {
     "url": "https://github.com/paulgreg/webcomponents-slides/issues"
   },
-  "homepage": "https://github.com/paulgreg/webcomponents-slides",
-  "dependencies": {
-    "shower-core": "^1.0.3",
-    "shower-ribbon": "^1.0.8"
-  }
+  "homepage": "https://github.com/paulgreg/webcomponents-slides"
 }

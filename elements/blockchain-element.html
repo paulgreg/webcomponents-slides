@@ -1,0 +1,57 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="blockchain-element" attributes="number transaction hash length">
+    <style>
+        ul {
+            display: inline-block;
+            list-style-type: none;
+            border: 1px solid black;
+            font-family: Helvetica, Sans-Serif;
+            font-size: 14px;
+            padding: .5em;
+            background-color: #C9DAF8;
+        }
+        li {
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            padding: .2em .5em;
+            background-color: white;
+            text-align: center;
+            width: 6em;
+        }
+        li:first-child {
+            background-color: #D9EAD3;
+        }
+        li:last-child {
+            border-bottom: 1px solid black;
+            background-color: #F4CCCC;
+       }
+    </style>
+    <template>
+        <ul id="list">
+            <li>{{number}}
+            <li>{{transaction}}
+            <li class="small">{{transaction}}
+            <li class="small">{{transaction}}
+            <li class="small">{{transaction}}
+            <li class="small">{{transaction}}
+            <li>{{hash}}
+        </ul>
+    </template>
+    <script>
+    Polymer('blockchain-element', {
+        number: "Number",
+        transaction: "Transaction",
+        hash: "Hash",
+        length: 5,
+        ready: function() {
+            var toRemove = 5 - this.length;
+            while (toRemove > 0) {
+                this.$.list.removeChild( this.$.list.querySelector('.small') );
+                toRemove--;
+            };
+        }
+    });
+    </script>
+</polymer-element>
