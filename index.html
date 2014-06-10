@@ -6,29 +6,47 @@
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="./bower_components/shower-ribbon/styles/screen.css">
+    <style>
+        a.clean { background: none; }
+        .cover h2 { color: white; }
+        .cover h2       { margin: 0; font-size:70px;
+text-shadow: 0px 2px 3px #666;
+        }
+    </style>
 </head>
 <body class="list">
 	<header class="caption">
 		<h1>Web Components</h1>
 		<p>Grégory Paul, Valtech</p>
+		<style>
+			.caption h1,
+            .caption p { color:#FFF; }
+		</style>
 	</header>
 	<section class="slide cover" id="Cover"><div>
 		<h2>Web Components</h2>
         <img class="logo" src="imgs/webcomponents-logo.svg">
 		<p><a href="http://paulgreg.me">Grégory Paul</a>, <a href="https://twitter.com/paulgreg">@paulgreg</a></p>
-		<img src="imgs/lego-green.jpg" alt="">
+        <a href="http://www.valtech.fr/" class="clean"><img class="valtech" src="imgs/valtech-white.png"></a>
+		<img src="imgs/lego-blue.jpg" alt="">
 		<style>
-			#Cover, #Cover h2, #Cover p, #Cover a { color:#FFF; text-align:center; }
-			#Cover h2 { margin: 0; font-size:70px; }
-			#Cover p { margin:10px 0 0; font-style:italic; font-size:24px; }
-            #Cover .logo { position: relative; width: 400px; margin: 40px 0;  }
+			#Cover, #Cover h2, #Cover p, #Cover a { color:white; text-align:center; }
+			#Cover p        { margin:10px 0 0; font-style:italic; font-size:24px; }
+            #Cover .logo,
+            #Cover .valtech { position: relative; z-index: 1; margin: 20px 0; }
+            #Cover .logo    { max-width: 400px; }
+            #Cover .valtech { max-width: 200px; }
 		</style>
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>Web Component ?</h2>
+		<img src="imgs/lego-blue-2.jpg" alt="">
 	</div></section>
 
 	<section class="slide" id="Summary"><div>
 		<h2>Sommaire</h2>
         <ul>
-            <li>Web Component ?
             <li>Templates
             <li>Custom Elements
             <li>HTML imports
@@ -43,8 +61,44 @@
         </style>
 	</div></section>
 
-	<section class="slide" id=""><div>
-		<h2>Web Component ?</h2>
+	<section class="slide cover" id=""><div>
+		<h2>Templates</h2>
+		<img src="imgs/lego-green.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>Custom Elements</h2>
+		<img src="imgs/lego-red.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>HTML imports ?</h2>
+		<img src="imgs/lego-white.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>Shadow DOM ?</h2>
+		<img src="imgs/lego-yellow.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>Polymer ?</h2>
+		<img src="imgs/lego-blue-2.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>X-Tags ?</h2>
+		<img src="imgs/lego-grey.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>Démo</h2>
+		<img src="imgs/lego-red.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover" id=""><div>
+		<h2>Resources</h2>
+		<img src="imgs/lego-green.jpg" alt="">
 	</div></section>
 
 	<div class="progress"><div></div></div>
