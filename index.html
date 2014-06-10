@@ -8,12 +8,13 @@
 	<link rel="stylesheet" href="./bower_components/shower-ribbon/styles/screen.css">
     <link rel="stylesheet" href="./css/fontello.css">
     <style>
-        .slide > div    { padding: 60px 84px 0px; width: 852px; height: 582px; }
-        figcaption      { text-align: center; line-height: 20px; }
-        a.clean         { background: none; }
-        img.fullscreen  { max-width: 880px; border: 1px solid #CCC; }
-        .cover h2       { color: white; }
-        .cover h2       { margin: 0; font-size:70px; text-shadow: 0px 2px 3px #666; }
+        .slide > div            { padding: 60px 84px 0px; width: 852px; height: 582px; }
+        .slide figcaption       { text-align: center; line-height: 20px; }
+        .slide a.clean          { background: none; }
+        .slide img.title        { position: relative; z-index: 1; }
+        .slide img.fullscreen   { max-width: 880px; border: 1px solid #CCC; }
+        .slide.cover h2         { color: white; }
+        .slide.cover h2         { margin: 0; font-size:70px; text-shadow: 0px 2px 3px #666; }
     </style>
 </head>
 <body class="list">
@@ -27,20 +28,20 @@
 	</header>
 	<section class="slide cover" id="Cover"><div>
 		<h2>Web Components</h2>
-        <img class="logo" src="imgs/webcomponents-logo.svg">
+        <img class="logo title" src="imgs/webcomponents-logo.svg">
         <p>
             <i class="icon-user"></i>Grégory Paul - 
             <i class="icon-bookmark"></i><a href="http://paulgreg.me">http://paulgreg.me/</a> - 
             <i class="icon-twitter"></i><a href="https://twitter.com/paulgreg">@paulgreg</a>
         </p>
-        <a href="http://www.valtech.fr/" class="clean"><img class="valtech" src="imgs/valtech-white.png"></a>
+        <a href="http://www.valtech.fr/" class="clean"><img class="valtech title" src="imgs/valtech-white.png"></a>
 		<img src="imgs/lego-blue.jpg" alt="">
 		<style>
 			#Cover, #Cover h2, #Cover p, #Cover a { color:white; text-align:center; }
 			#Cover h2           { margin:20px; }
 			#Cover p            { margin:16px; font-style:italic; font-size:30px; }
             #Cover .logo,
-            #Cover .valtech     { position: relative; z-index: 1; margin: 20px 0; }
+            #Cover .valtech     { margin: 20px 0; }
             #Cover .valtech     { max-width: 260px; }
 		</style>
 	</div></section>
@@ -54,7 +55,7 @@
 		<h2>Web Component</h2>
         <figure>
             <img src="imgs/blockchain.png" class="fullscreen">
-            <figcaption><i class="icon-link-ext"></i><a href="http://paulgreg.me/bitcoin-cryptocurrencies/?full#28">démo live</a></figcaption>
+            <figcaption><i class="icon-link-ext"></i><a href="http://paulgreg.me/bitcoin-cryptocurrencies/#28" target="blank">démo live</a></figcaption>
         </figure>
 	</div></section>
 
@@ -66,8 +67,8 @@
             <li>Custom Elements
             <li>HTML imports
             <li>Shadow <abbr title="Document Object Model">DOM</abbr>
-            <li>Polymer
             <li>X-Tags
+            <li>Polymer
             <li>Démo
             <li>Exemples
         </ul>
@@ -100,18 +101,21 @@
 		<h2>Shadow DOM</h2>
         <figure>
             <img src="imgs/shadow-dom.png" class="fullscreen">
-            <figcaption><i class="icon-link-ext"></i><a href="../cours-du-soir-html5/exemples/multimedia/video.html">démo live</a></figcaption>
+            <figcaption><i class="icon-link-ext"></i><a href="../cours-du-soir-html5/exemples/multimedia/video.html" target="blank">démo live</a></figcaption>
         </figure>
-	</div></section>
-
-	<section class="slide cover"><div>
-		<h2>Polymer ?</h2>
-		<img src="imgs/lego-blue-2.jpg" alt="">
 	</div></section>
 
 	<section class="slide cover"><div>
 		<h2>X-Tags ?</h2>
 		<img src="imgs/lego-grey.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover polymer"><div>
+        <h2><img src="imgs/polymer-logo.svg" class="logo title">Polymer ?</h2>
+		<img src="imgs/lego-blue-2.jpg" alt="">
+        <style>
+            .slide.polymer .logo { max-width: 80px; margin: 0 20px 0 0; }
+        </style>
 	</div></section>
 
 	<section class="slide cover"><div>
