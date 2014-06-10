@@ -6,12 +6,14 @@
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="./bower_components/shower-ribbon/styles/screen.css">
+    <link rel="stylesheet" href="./css/fontello.css">
     <style>
-        a.clean { background: none; }
-        .cover h2 { color: white; }
-        .cover h2       { margin: 0; font-size:70px;
-text-shadow: 0px 2px 3px #666;
-        }
+        .slide > div    { padding: 60px 84px 0px; width: 852px; height: 582px; }
+        figcaption      { text-align: center; line-height: 20px; }
+        a.clean         { background: none; }
+        img.fullscreen  { max-width: 880px; border: 1px solid #CCC; }
+        .cover h2       { color: white; }
+        .cover h2       { margin: 0; font-size:70px; text-shadow: 0px 2px 3px #666; }
     </style>
 </head>
 <body class="list">
@@ -20,29 +22,42 @@ text-shadow: 0px 2px 3px #666;
 		<p>Grégory Paul, Valtech</p>
 		<style>
 			.caption h1,
-            .caption p { color:#FFF; }
+            .caption p      { color:#FFF; }
 		</style>
 	</header>
 	<section class="slide cover" id="Cover"><div>
 		<h2>Web Components</h2>
         <img class="logo" src="imgs/webcomponents-logo.svg">
-		<p><a href="http://paulgreg.me">Grégory Paul</a>, <a href="https://twitter.com/paulgreg">@paulgreg</a></p>
+        <p>
+            <i class="icon-user"></i>Grégory Paul - 
+            <i class="icon-bookmark"></i><a href="http://paulgreg.me">http://paulgreg.me/</a> - 
+            <i class="icon-twitter"></i><a href="https://twitter.com/paulgreg">@paulgreg</a>
+        </p>
         <a href="http://www.valtech.fr/" class="clean"><img class="valtech" src="imgs/valtech-white.png"></a>
 		<img src="imgs/lego-blue.jpg" alt="">
 		<style>
 			#Cover, #Cover h2, #Cover p, #Cover a { color:white; text-align:center; }
-			#Cover p        { margin:10px 0 0; font-style:italic; font-size:24px; }
+			#Cover h2           { margin:20px; }
+			#Cover p            { margin:16px; font-style:italic; font-size:30px; }
             #Cover .logo,
-            #Cover .valtech { position: relative; z-index: 1; margin: 20px 0; }
-            #Cover .logo    { max-width: 400px; }
-            #Cover .valtech { max-width: 200px; }
+            #Cover .valtech     { position: relative; z-index: 1; margin: 20px 0; }
+            #Cover .valtech     { max-width: 260px; }
 		</style>
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>Web Component ?</h2>
 		<img src="imgs/lego-blue-2.jpg" alt="">
 	</div></section>
+
+	<section class="slide blockchain"><div>
+		<h2>Web Component</h2>
+        <figure>
+            <img src="imgs/blockchain.png" class="fullscreen">
+            <figcaption><i class="icon-link-ext"></i><a href="http://paulgreg.me/bitcoin-cryptocurrencies/?full#28">démo live</a></figcaption>
+        </figure>
+	</div></section>
+
 
 	<section class="slide" id="Summary"><div>
 		<h2>Sommaire</h2>
@@ -61,44 +76,68 @@ text-shadow: 0px 2px 3px #666;
         </style>
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>Templates</h2>
 		<img src="imgs/lego-green.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>Custom Elements</h2>
 		<img src="imgs/lego-red.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>HTML imports ?</h2>
 		<img src="imgs/lego-white.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>Shadow DOM ?</h2>
 		<img src="imgs/lego-yellow.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide shadow"><div>
+		<h2>Shadow DOM</h2>
+        <figure>
+            <img src="imgs/shadow-dom.png" class="fullscreen">
+            <figcaption><i class="icon-link-ext"></i><a href="../cours-du-soir-html5/exemples/multimedia/video.html">démo live</a></figcaption>
+        </figure>
+	</div></section>
+
+	<section class="slide cover"><div>
 		<h2>Polymer ?</h2>
 		<img src="imgs/lego-blue-2.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>X-Tags ?</h2>
 		<img src="imgs/lego-grey.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>Démo</h2>
 		<img src="imgs/lego-red.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover" id=""><div>
+	<section class="slide cover"><div>
 		<h2>Resources</h2>
 		<img src="imgs/lego-green.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover qa"><div>
+		<h2>Questions / Réponses</h2>
+        <p><i class="icon-chat"></i></p>
+        <ul>
+            <li><i class="icon-bookmark"></i><a href="http://paulgreg.me/webcomponents-slides/">http://paulgreg.me/webcomponents-slides/</a>
+            <li><i class="icon-github"></i><a href="https://github.com/paulgreg/webcomponents-slides">https://github.com/paulgreg/webcomponents-slides</a>
+        </ul>
+		<img src="imgs/lego-blue.jpg" alt="">
+        <style>
+            .slide.qa,
+            .slide.qa a { color: white; }
+            .slide.qa p { text-align: center; width: 100%; font-size: 300px; line-height: 100px; }
+            .slide.qa li:before { content: ""; }
+        </style>
 	</div></section>
 
 	<div class="progress"><div></div></div>
