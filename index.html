@@ -9,12 +9,20 @@
     <link rel="stylesheet" href="./css/fontello.css">
     <style>
         .slide > div            { padding: 60px 84px 0px; width: 852px; height: 582px; }
-        .slide figcaption       { text-align: center; line-height: 20px; }
+        .slide.cover h2         { color: white; }
+        .slide.cover h2         { margin: 0; font-size:70px; text-shadow: 0px 2px 3px #666; }
         .slide a.clean          { background: none; }
         .slide img.title        { position: relative; z-index: 1; }
         .slide img.fullscreen   { max-width: 880px; border: 1px solid #CCC; }
-        .slide.cover h2         { color: white; }
-        .slide.cover h2         { margin: 0; font-size:70px; text-shadow: 0px 2px 3px #666; }
+        .slide figcaption       { text-align: center; line-height: 20px; }
+        .slide .center          { text-align: center; }
+        .slide pre              { margin: 0; }
+        .slide h2               { color: #140F50; }
+        .slide h3               { margin: 0; color: #530600; margin-bottom: .25em; font-size: 30px; }
+        .slide h3:before        { content: '■'; margin-right: .2em; position: relative; top: -2px; display: inline-block; }
+        .slide pre code         { line-height: 1.3em; }
+        .slide abbr             { border-bottom: 1px dashed grey; }
+
     </style>
 </head>
 <body class="list">
@@ -63,13 +71,13 @@
 	<section class="slide" id="Summary"><div>
 		<h2>Sommaire</h2>
         <ul>
-            <li>Templates
             <li>Custom Elements
-            <li>HTML imports
             <li>Shadow <abbr title="Document Object Model">DOM</abbr>
+            <li>Templates
+            <li>HTML imports
+            <li>Support
             <li>Librairies (X-Tags, Polymer, Bosonic)
             <li>Exemples
-            <li>Support
             <li>Questions / réponses
         </ul>
         <style>
@@ -78,23 +86,166 @@
 	</div></section>
 
 	<section class="slide cover"><div>
-		<h2>Templates</h2>
-		<img src="imgs/lego-green.jpg" alt="">
-	</div></section>
-
-	<section class="slide cover"><div>
 		<h2>Custom Elements</h2>
 		<img src="imgs/lego-red.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover"><div>
-		<h2>HTML imports ?</h2>
-		<img src="imgs/lego-white.jpg" alt="">
+	<section class="slide custom-basic"><div>
+		<h2>Custom Elements</h2>
+        <h3>Création</h3>
+        <pre><code>var XFoo = document.<mark>registerElement('<mark>x<mark class="important">-</mark>foo</mark>')</mark>;</code></pre>
+        <div class="next">
+            <h3>Instanciation</h3>
+            <pre><code><mark>&lt;x-foo&gt;&lt;/x-foo&gt;</mark></code></pre>
+        </div>
+        <div class="next">
+            <span>ou via JavaScript</span>
+            <pre><code>document.body.appendChild(document.<mark>createElement('x-foo')</mark>);</code></pre>
+        </div>
+        <div class="next">
+            <span>ou encore</span>
+            <pre><code>document.body.appendChild(<mark>new XFoo()</mark>);</code></pre>
+        </div>
+        <style>
+            .slide.custom-basic span    { color: #333; font-style: italic; }
+        </style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <h3>Argument facultatif</h3>
+        <pre>
+            <code>var XFoo = document.registerElement('x-foo', <mark>{</mark></code>
+            <code>    <mark>prototype: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create</a>(HTMLElement.prototype)</mark></code>
+            <code><mark>}</mark>);</code>
+            <code>document.body.appendChild(new XFoo());</code>
+        </pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <h3>Avec des propriétés et méthodes</h3>
+        <pre>
+            <code>var XFoo = document.registerElement('x-foo', {</code>
+            <code>  prototype: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create</a>(HTMLElement.prototype, {</code>
+            <code>    <mark>bar: {</mark></code>
+            <code>      <mark>get: function() { return 5; }</mark></code>
+            <code>    <mark>}</mark>,</code>
+            <code>    <mark>foo: {</mark></code>
+            <code>      <mark>value: function() {</mark></code>
+            <code>        <mark>alert('foo() called');</mark></code>
+            <code>      <mark>}</mark></code>
+            <code>    }</code>
+            <code>  })</code>
+            <code>});</code>
+        </pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <h3>Surcharge</h3>
+        <pre>
+            <code>var MegaButton = document.registerElement('<mark>mega-button</mark>', {</code>
+            <code>  prototype: Object.create(<mark>HTMLButtonElement.prototype),</code>
+            <code>  <mark>extends: 'button'</mark></code>
+            <code>});</code>
+            <code>var megabtn = document.createElement('button', 'mega-button');</code>
+            <code>megabtn.innerText = "Mega button";</code>
+            <code>document.body.appendChild(megabtn);</code>
+        </pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <figure class="center">
+            <img src="imgs/mega-button.png" class="fullscreen">
+            <figcaption>Depuis l’inspecteur</figcaption>
+        </figure>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <h3>Cycle de vie</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>nom du callback</th>
+                    <th>appelé quand</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>createdCallback</td>
+                <td>une instance est créée</td>
+            </tr>
+            <tr>
+                <td>attachedCallback</td>
+                <td>une instance est attachée au <abbr title="Document Object Model">DOM</abbr></td>
+            </tr>
+            <tr>
+                <td>detachedCallback</td>
+                <td>une instance est supprimée du DOM</td>
+            </tr>
+            <tr>
+                <td>attributeChangedCallback<br>(name, oldVal, newVal)</td>
+                <td>un attribut est ajouté, modifié ou supprimé</td>
+            </tr>
+            </tbody>
+        </table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <h3>Cycle de vie : exemple</h3>
+        <pre>
+            <code>var <mark>proto</mark> = Object.create(HTMLElement.prototype);</code>
+            <code>proto.<mark>createdCallback</mark> = alert.bind(this, 'instance créée');</code>
+            <code>proto.<mark>attachedCallback</mark> = alert.bind(this, 'attaché au DOM');</code>
+            <code>var XFoo = document.registerElement('x-foo', <mark>{</mark></code>
+            <code>    <mark>prototype: proto</mark></code>
+            <code><mark>}</mark>);</code>
+            <code>var xfoo = new XFoo();</code>
+            <code>document.body.appendChild(xfoo);</code>
+        </pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <h3>Initialisation de l’élément</h3>
+        <pre>
+            <code>var proto = Object.create(HTMLElement.prototype);</code>
+            <code>proto.createdCallback = <mark>function() {</mark></code>
+            <code>   <mark>this.innerHTML = '<strong>Je suis x-foo !</strong>'</mark>;</code>
+            <code><mark>}</mark>;</code>
+            <code>var XFoo = document.registerElement('x-foo', {</code>
+            <code>    prototype: proto</code>
+            <code>});</code>
+            <code>var xfoo = new XFoo();</code>
+            <code>document.body.appendChild(xfoo);</code>
+        </pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom Elements</h2>
+        <figure class="center">
+            <img src="imgs/xfoo.png" class="fullscreen">
+            <figcaption>Depuis l’inspecteur</figcaption>
+        </figure>
 	</div></section>
 
 	<section class="slide cover"><div>
 		<h2>Shadow DOM ?</h2>
 		<img src="imgs/lego-yellow.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover"><div>
+		<h2>Templates</h2>
+		<img src="imgs/lego-green.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover"><div>
+		<h2>HTML imports ?</h2>
+		<img src="imgs/lego-white.jpg" alt="">
 	</div></section>
 
 	<section class="slide shadow"><div>
@@ -112,6 +263,13 @@
         </style>
 	</div></section>
 
+	<section class="slide support"><div>
+        <iframe src="https://jonrimmer.github.io/are-we-componentized-yet/"></iframe>
+        <style>
+            .slide.support iframe { width: 1000px; height: 700px; position: absolute; top: 0; left: 10px; }
+        </style>
+	</div></section>
+
 	<section class="slide cover"><div>
 		<h2>X-Tags ?</h2>
 		<img src="imgs/lego-green.jpg" alt="">
@@ -122,7 +280,6 @@
         <a href="https://github.com/csuwildcat/x-mario/blob/master/src/main.js">source</a>
         <a href="http://www.backalleycoder.com/x-mario/demo/">démo</a>
 	</div></section>
-
 
 	<section class="slide cover polymer"><div>
         <h2><img src="imgs/polymer-logo.svg" class="logo title">Polymer ?</h2>
@@ -145,13 +302,6 @@
 	<section class="slide cover"><div>
 		<h2>Support ?</h2>
 		<img src="imgs/lego-white.jpg" alt="">
-	</div></section>
-
-	<section class="slide support"><div>
-        <iframe src="https://jonrimmer.github.io/are-we-componentized-yet/"></iframe>
-        <style>
-            .slide.support iframe { width: 1000px; height: 700px; position: absolute; top: 0; left: 10px; }
-        </style>
 	</div></section>
 
 	<section class="slide cover"><div>
