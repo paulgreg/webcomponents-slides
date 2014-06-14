@@ -19,7 +19,7 @@
         .slide .center          { text-align: center; }
         .slide pre              { margin: 0; }
         .slide h2               { color: #140F50; }
-        .slide h3               { margin: 0; color: #530600; margin-bottom: .25em; font-size: 30px; }
+        .slide h3               { margin: 20px 0 0 0; color: #530600; font-size: 30px; }
         .slide pre code         { line-height: 1.3em; }
         .slide abbr             { border-bottom: 1px dashed grey; }
 
@@ -238,8 +238,28 @@
 		<img src="imgs/lego-green.jpg" alt="">
 	</div></section>
 
-	<section class="slide"><div>
+	<section class="slide template"><div>
 		<h2>Templates</h2>
+        <h3><i class="icon-code"></i>&lt;template&gt;</h3>
+        <pre>
+            <code>&lt;<mark>template</mark> id="mytemplate"&gt;</code>
+            <code>  &lt;strong&gt;</code>
+            <code>  &lt;img src=""&gt;&lt;br&gt;</code>
+            <code>&lt;/<mark>template</mark>&gt;</code>
+        </pre>
+        <small><i class="icon-lightbulb"></i>Parsé mais pas rendu (&lt;script&gt; pas lancé, &lt;img&gt; pas chargées, etc)</small>
+        <div class="next">
+            <h3><i class="icon-wrench"></i>utilisation</h3>
+            <pre>
+                <code>var t = document.querySelector('#mytemplate');</code>
+                <code>t.<mark>content</mark>.querySelector('strong').textContent = 'Hello, I am';</code>
+                <code>t.<mark>content</mark>.querySelector('img').src = 'http://www.valtech.fr/sites/all/themes/valtech/logo.png';</code>
+                <code>document.body.appendChild(t.content.<mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node.cloneNode">cloneNode</a></mark>(true));</code>
+            </pre>
+        </div>
+        <style>
+            .slide.template small { margin: 5px 0; }
+        </style>
 	</div></section>
 
 	<section class="slide cover"><div>
