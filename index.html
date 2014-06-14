@@ -70,18 +70,27 @@
 
 	<section class="slide" id="Summary"><div>
 		<h2>Sommaire</h2>
-        <ul>
-            <li>Custom Elements
-            <li>Templates
-            <li>Shadow <abbr title="Document Object Model">DOM</abbr>
-            <li>HTML imports
-            <li>Support
-            <li>Librairies (X-Tags, Polymer, Bosonic)
-            <li>Exemples
-            <li>Questions / réponses
-        </ul>
+        <dl>
+            <dt><i class="icon-wrench"></i>Custom Elements
+            <dd>déclaration d’éléments
+            <dt><i class="icon-code"></i>Templates
+            <dd>modèles HTML
+            <dt><i class="icon-wrench"></i>Shadow <abbr title="Document Object Model">DOM</abbr>
+            <dd>encapsulation de code
+            <dt><i class="icon-wrench"></i>HTML imports
+            <dd>importation d’élément
+            <dt><i class="icon-bug"></i>Support
+            <dd>au sein des navigateurs
+            <dt><i class="icon-cog"></i>Librairies
+            <dd>X-Tags, Polymer, Bosonic
+            <dt><i class="icon-cog-alt"></i>Exemple
+            <dd>balise Mappy
+            <dt><i class="icon-lightbulb"></i>Questions
+            <dd>et réponses ?
+        </dl>
         <style>
-            #Summary ul { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
+            #Summary dl             { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
+            #Summary dd             { margin-left: 2em; font-size: 20px; color: #333; }
         </style>
 	</div></section>
 
@@ -267,6 +276,22 @@
 		<img src="imgs/lego-yellow.jpg" alt="">
 	</div></section>
 
+	<section class="slide shadow"><div>
+		<h2>Shadow DOM</h2>
+        <figure>
+            <img src="imgs/shadow-dom.png" class="fullscreen">
+            <figcaption>
+                <i class="icon-link-ext"></i>démo <a href="http://paulgreg.me/training-html5/exemples/multimedia/video.html">&lt;video&gt;</a> 
+                (<a href="../cours-du-soir-html5/exemples/multimedia/video.html" target="blank">en local</a>) 
+                <i class="icon-link-ext"></i><a href="http://paulgreg.me/training-html5/exemples/HTML5/forms.html">&lt;input&gt;</a>
+            </figcaption>
+        </figure>
+        <small>Sous Chrome, activez “Show Shadow DOM” dans les préférences de la console développeur.<br>(F12 &gt; <i class="icon-cog"></i> &gt; General &gt; Elements)</small>
+        <style>
+            .slide.shadow small { display: block; font-size: 20px; margin: 30px 0 0 0; padding: 0 5px; border: 1px dashed #7A6D7E; background-color: #EEE; border-radius: 10px; }
+        </style>
+	</div></section>
+
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
         <h3><i class="icon-code"></i>Depuis un &lt;button&gt;</h3>
@@ -292,21 +317,6 @@
 	<section class="slide cover"><div>
 		<h2>HTML imports ?</h2>
 		<img src="imgs/lego-white.jpg" alt="">
-	</div></section>
-
-	<section class="slide shadow"><div>
-		<h2>Shadow DOM</h2>
-        <figure>
-            <img src="imgs/shadow-dom.png" class="fullscreen">
-            <figcaption>
-                <i class="icon-link-ext"></i><a href="http://paulgreg.me/training-html5/exemples/multimedia/video.html">démo live</a> 
-                (<a href="../cours-du-soir-html5/exemples/multimedia/video.html" target="blank">en local</a>)
-            </figcaption>
-        </figure>
-        <small>Sous Chrome, activez “Show Shadow DOM” dans les préférences de la console développeur.<br>(F12 &gt; <i class="icon-cog"></i> &gt; General &gt; Elements)</small>
-        <style>
-            .slide.shadow small { display: block; font-size: 20px; margin: 30px 0 0 0; padding: 0 5px; border: 1px dashed #7A6D7E; background-color: #EEE; border-radius: 10px; }
-        </style>
 	</div></section>
 
 	<section class="slide support"><div>
