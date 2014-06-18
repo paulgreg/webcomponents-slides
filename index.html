@@ -378,7 +378,7 @@
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
-        <h3><i class="icon-code"></i>Points d’insertion</h3>
+        <h3><i class="icon-code"></i>Points d’insertion 1/2</h3>
         <pre>
             <code>&lt;article&gt;</code>
             <code>&lt;span&gt;Grégory&lt;/span&gt;</code>
@@ -396,9 +396,9 @@
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
+        <h3><i class="icon-code"></i>Points d’insertion 2/2</h3>
         <pre>
-            <code>var host = document.querySelector('article');</code>
-            <code>var root = host.createShadowRoot();</code>
+            <code>var root = document.querySelector('article').createShadowRoot();</code>
             <code>root.appendChild(document.querySelector('template').<mark>content</mark>);</code>
         </pre>
         <h3><i class="icon-lightbulb"></i>Résultat</h3>
@@ -409,7 +409,7 @@
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
-        <h3><i class="icon-code"></i>Points d’insertion</h3>
+        <h3><i class="icon-code"></i>Points d’insertion via sélecteurs 1/2</h3>
         <pre>
             <code>&lt;article&gt;</code>
             <code>&lt;span class="firstname"&gt;Grégory&lt;/span&gt;</code>
@@ -429,9 +429,9 @@
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
+        <h3><i class="icon-code"></i>Points d’insertion via sélecteurs 2/2</h3>
         <pre>
-            <code>var host = document.querySelector('article');</code>
-            <code>var root = host.createShadowRoot();</code>
+            <code>var root = document.querySelector('article').createShadowRoot();</code>
             <code>root.appendChild(document.querySelector('template').<mark>content</mark>);</code>
         </pre>
         <h3><i class="icon-lightbulb"></i>Résultat</h3>
@@ -440,9 +440,8 @@
         </figure>
 	</div></section>
 
-
 	<section class="slide"><div>
-		<h2>Shadow DOM</h2>
+		<h2>Shadow DOM / Styles</h2>
         <pre>
             <code>&lt;h3&gt;Hello&lt;/h3&gt;</code>
             <code>&lt;h3&gt;World&lt;/h3&gt;</code>
@@ -452,13 +451,13 @@
             <code>var h3 = document.querySelector('<mark>h3+h3</mark>');</code>
             <code>var root = h3.createShadowRoot();</code>
             <code>root.<mark>innerHTML</mark> += <mark>'&lt;style&gt;h3{ color: red; }&lt;/style&gt;' +</mark></code>
-            <code>                  <mark>'&lt;h3&gt;Shadow DOM&lt;/h3&gt;'</mark>;</code>
+            <code>                  <mark>'<mark class="important">&lt;content&gt;&lt;/content&gt;</mark>'</mark>;</code>
         </pre>
-        <h3 class="next"><i class="icon-attention"></i>Les styles ne sortent pas du "shadow root"</h3>
+        <h3 class="next"><i class="icon-attention"></i>Les styles ne sortent pas du <i>"shadow root"</i></h3>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Shadow DOM</h2>
+		<h2>Shadow DOM / Styles</h2>
         <pre>
             <code>&lt;button&gt;Hello World&lt;/button&gt;</code>
         </pre>
@@ -468,9 +467,95 @@
             <code>var root = button.createShadowRoot();</code>
             <code>root.innerHTML = <mark>'&lt;style&gt;'+ </mark></code>
             <code>    <mark>'<mark class="important">:host</mark> { text-transform: uppercase; }' +</mark></code>
-            <code>    <mark>'<mark class="important">:host(:hover)</mark> { color: red; }' +</mark></code>
+            <code>    <mark>'<mark class="important">:host(:hover)</mark> { font-weight: bold; }' +</mark></code>
             <code>    <mark>'&lt;/style&gt;' + </mark></code>
-            <code>    <mark>'<mark class="important">&lt;content&gt;&lt;/content&gt;</mark>'</mark>;</code>
+            <code>    <mark>'&lt;content&gt;&lt;/content&gt;'</mark>;</code>
+        </pre>
+        <h3 class="next"><i class="icon-lightbulb"></i><i>host</i> permet de styler le noeud</h3>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM / Styles</h2>
+        <pre>
+            <code>&lt;p class="<mark class="important">main</mark>"&gt;</code>
+            <code>  &lt;button&gt;Hello World&lt;/button&gt;</code>
+            <code>&lt;/p&gt;</code>
+        </pre>
+        <h3><i class="icon-wrench"></i>:host-context</h3>
+        <pre>
+            <code>var button = document.querySelector('button');</code>
+            <code>var root = button.createShadowRoot();</code>
+            <code>root.innerHTML = <mark>'&lt;style&gt;'+ </mark></code>
+            <code>    <mark>'<mark class="important">:host-context(.main)</mark> { text-transform: uppercase; }' +</mark></code>
+            <code>    <mark>'&lt;/style&gt;' + </mark></code>
+            <code>    <mark>'&lt;content&gt;&lt;/content&gt;'</mark>;</code>
+        </pre>
+        <h3 class="next"><i class="icon-lightbulb"></i><i>host-context</i> s’applique à tous les noeuds parents</h3>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM / Styles</h2>
+        <pre>
+            <code>&lt;p&gt;</code>
+            <code>  &lt;button&gt;Hello World&lt;/button&gt;</code>
+            <code>&lt;/p&gt;</code>
+        </pre>
+        <h3><i class="icon-wrench"></i>:host-context</h3>
+        <pre>
+            <code>var button = document.querySelector('button');</code>
+            <code>var root = button.createShadowRoot();</code>
+            <code>root.innerHTML = <mark>'&lt;style&gt;'+ </mark></code>
+            <code>    <mark>'<mark class="important">:host-context(.main)</mark> { text-transform: uppercase; }' +</mark></code>
+            <code>    <mark>'&lt;/style&gt;' + </mark></code>
+            <code>    <mark>'&lt;content&gt;&lt;/content&gt;'</mark>;</code>
+        </pre>
+        <h3 class="next"><i class="icon-attention"></i>Ne fonctionne pas car le parent ne contient pas la classe <i>main</i></h3>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM / Styles</h2>
+        <pre>
+            <code>&lt;button&gt;&lt;span&gt;Hello &lt;/span&gt;&lt;/button&gt;</code>
+        </pre>
+        <pre>
+            <code>var button = document.querySelector('button');</code>
+            <code>var root = button.createShadowRoot();</code>
+            <code>root.innerHTML = <mark>'&lt;content&gt;&lt;/content&gt;&lt;span&gt;Shadow DOM&lt;span&gt;'</mark>;</code>
+        </pre>
+        <div class="next">
+            <h3><i class="icon-wrench"></i>::shadow</h3>
+            <pre>
+                <code>&lt;style&gt;</code>
+                <code>button<mark class="important">::shadow</mark> span {</code>
+                <code>    color: red;</code>
+                <code>}</code>
+                <code>&lt;/style&gt;</code>
+            </pre>
+        </div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM / Styles</h2>
+        <h3><i class="icon-lightbulb"></i>Résultat</h3>
+        <figure class="center">
+            <img class="fullscreen" src="imgs/shadow-css.png">
+            <figcaption>Le CSS ne s’applique que dans le <i>shadow DOM</i></figcaption>
+        </figure>
+        </div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <pre>
+            <code>&lt;button&gt;&lt;/button&gt;</code>
+        </pre>
+        <h3><i class="icon-lightbulb"></i><i>::shadow</i> fonctionne également pour <i>querySelector</i></h3>
+        <pre>
+            <code>var button = document.querySelector('button');</code>
+            <code>var root = button.createShadowRoot();</code>
+            <code>root.innerHTML = <mark>'&lt;span&gt;Shadow DOM&lt;span&gt;'</mark>;</code>
+            <code>var span = document.<mark>querySelector('button<mark class="important">::shadow</mark> span')</mark>;</code>
+            <code>span.textContent</code>
         </pre>
 	</div></section>
 
