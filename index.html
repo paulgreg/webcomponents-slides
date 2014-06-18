@@ -14,7 +14,7 @@
         .slide.cover h2         { margin: 0; font-size:70px; text-shadow: 0px 3px 3px #666; }
         .slide a.clean          { background: none; }
         .slide img.title        { position: relative; z-index: 1; }
-        .slide img.fullscreen   { max-width: 880px; border: 1px solid #CCC; }
+        .slide img.fullscreen   { max-width: 880px; max-height: 475px; border: 1px solid #CCC; }
         .slide figcaption       { text-align: center; line-height: 20px; }
         .slide .center          { text-align: center; }
         .slide pre              { margin: 0; }
@@ -70,27 +70,29 @@
 
 	<section class="slide" id="Summary"><div>
 		<h2>Sommaire</h2>
-        <dl>
-            <dt><i class="icon-wrench"></i>Custom Elements
-            <dd>déclaration d’éléments
-            <dt><i class="icon-code"></i>Templates
-            <dd>modèles HTML
-            <dt><i class="icon-wrench"></i>Shadow <abbr title="Document Object Model">DOM</abbr>
-            <dd>encapsulation de code
-            <dt><i class="icon-wrench"></i>HTML imports
-            <dd>importation d’élément
-            <dt><i class="icon-bug"></i>Support
-            <dd>au sein des navigateurs
-            <dt><i class="icon-cog"></i>Librairies
-            <dd>X-Tags, Polymer, Bosonic
-            <dt><i class="icon-cog-alt"></i>Exemple
-            <dd>balise Mappy
-            <dt><i class="icon-lightbulb"></i>Questions
-            <dd>et réponses ?
+        <ul>
+            <li><i class="icon-wrench"></i>Custom Elements
+            <small>déclaration d’éléments</small>
+            <li class="next"><i class="icon-code"></i>Templates
+            <small>modèles HTML</small>
+            <li class="next"><i class="icon-wrench"></i>Shadow <abbr title="Document Object Model">DOM</abbr>
+            <small>encapsulation de code</small>
+            <li class="next"><i class="icon-wrench"></i>HTML imports
+            <small>importation d’élément</small>
+            <li class="next"><i class="icon-bug"></i>Support
+            <small>au sein des navigateurs</small>
+            <li class="next"><i class="icon-cog"></i>Librairies
+            <small>X-Tags, Polymer, Bosonic</small>
+            <li class="next"><i class="icon-cog-alt"></i>Exemple
+            <small>balise Mappy</small>
+            <li class="next"><i class="icon-lightbulb"></i>Questions
+            <small>et réponses ?</small>
         </dl>
         <style>
-            #Summary dl             { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
-            #Summary dd             { margin-left: 2em; font-size: 20px; color: #333; }
+            #Summary ul             { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
+            #Summary li:before      { content: "";}
+            #Summary li i:before    { display: inline; margin-right: .5em; }
+            #Summary li small       { display: block; margin-left: 2.6em; font-size: 20px; color: #333; }
         </style>
 	</div></section>
 
@@ -129,6 +131,14 @@
             <code><mark>}</mark>);</code>
             <code>document.body.appendChild(new XFoo());</code>
         </pre>
+	</div></section>
+
+	<section class="slide compat"><div>
+        <h2>Parenthèse : ECMAscript 5</h2>
+        <iframe src="https://kangax.github.io/compat-table/es5/"></iframe>
+        <style>
+            .slide.compat iframe { width: 1024px; height: 500px; position: absolute; top: 140px; left: 0; }
+        </style>
 	</div></section>
 
 	<section class="slide"><div>
@@ -252,8 +262,8 @@
         <h3><i class="icon-code"></i>&lt;template&gt;</h3>
         <pre>
             <code>&lt;<mark>template</mark> id="mytemplate"&gt;</code>
-            <code>  &lt;strong&gt;</code>
-            <code>  &lt;img src=""&gt;&lt;br&gt;</code>
+            <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
+            <code>  &lt;img src=""&gt;</code>
             <code>&lt;/<mark>template</mark>&gt;</code>
         </pre>
         <small><i class="icon-lightbulb"></i>Parsé mais pas rendu (&lt;script&gt; pas lancé, &lt;img&gt; pas chargées, etc)</small>
@@ -268,7 +278,25 @@
         </div>
         <style>
             .slide.template small { margin: 5px 0; }
+            .slide.template div h3 { margin-top: 0; }
         </style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Parenthèse : DocumentFragment</h2>
+        <h3><i class="icon-wrench"></i>createDocumentFragment</h3>
+        <pre>
+            <code>var <mark>docfrag</mark> = <mark class="important">document.createDocumentFragment()</mark>;</code>
+            <code>["IE", "FF", "Chrome"].forEach(function(e) {</code>
+            <code>  var li = document.createElement("li");</code>
+            <code>  li.textContent = e;</code>
+            <code>  <mark>docfrag</mark>.appendChild(li);</code>
+            <code>});</code>
+            <code>var ul = document.createElement("ul");</code>
+            <code>document.body.appendChild(ul);</code>
+            <code>ul.appendChild(<mark>docfrag</mark>);</code>
+        </pre>
+        <h3><i class="icon-gauge"></i>660 ops/s vs 15,414 ops/s <small>(<a href="http://jsperf.com/document-createdocumentfragment">test sur JsPerf</a>)</small></h3>
 	</div></section>
 
 	<section class="slide cover"><div>
@@ -294,14 +322,48 @@
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
-        <h3><i class="icon-code"></i>Depuis un &lt;button&gt;</h3>
+        <figure class="center">
+            <img src="imgs/shadow-trees.svg" class="fullscreen" alt="">
+            <figcaption></figcaption>
+        </figure>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <h3><i class="icon-code"></i>Depuis une balise &lt;article&gt;</h3>
         <pre>
-            <code>&lt;button&gt;Hello, world!&lt;/button&gt;</code>
+            <code>&lt;article /&gt;</code>
         </pre>
         <div class="next">
             <h3><i class="icon-wrench"></i>Création de Shadow DOM</h3>
             <pre>
-                <code>var host = document.querySelector('button');</code>
+                <code>var host = document.querySelector('article');</code>
+                <code>var root = host.createShadowRoot();</code>
+                <code>var title = document.createElement('h2');</code>
+                <code>title.textContent = 'Titre';</code>
+                <code>root.appendChild(title);</code>
+            </pre>
+        </div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <figure class="center">
+            <img src="imgs/shadow-rendering.svg" class="fullscreen" alt="">
+            <figcaption></figcaption>
+        </figure>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <h3><i class="icon-code"></i>Depuis une balise &lt;article&gt;</h3>
+        <pre>
+            <code>&lt;article&gt;Hello, world!&lt;/article&gt;</code>
+        </pre>
+        <div class="next">
+            <h3><i class="icon-wrench"></i>Création de Shadow DOM</h3>
+            <pre>
+                <code>var host = document.querySelector('article');</code>
                 <code>var root = host.createShadowRoot();</code>
                 <code>root.textContent = 'Bonjour !';</code>
             </pre>
@@ -309,25 +371,107 @@
         <div class="next">
             <h3><i class="icon-lightbulb"></i>Que contient l’élément ?</h3>
             <pre>
-                <code>document.querySelector('button').textContent;</code>
+                <code>document.querySelector('article').textContent;</code>
             </pre>
         </div>
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
-        <figure class="center">
-            <img src="imgs/shadow-trees.svg" class="fullscreen" alt="">
-            <figcaption><i class="icon-wrench"></i></figcaption>
+        <h3><i class="icon-code"></i>Points d’insertion</h3>
+        <pre>
+            <code>&lt;article&gt;</code>
+            <code>&lt;span&gt;Grégory&lt;/span&gt;</code>
+            <code>&lt;/article&gt;</code>
+        </pre>
+        <div class="next">
+            <h3><i class="icon-code"></i>Avec ce template</h3>
+            <pre>
+                <code>&lt;template&gt;</code>
+                <code>&lt;h2&gt;Bonjour &lt;content /&gt;&lt;/h2&gt;</code>
+                <code>&lt;/template&gt;</code>
+            </pre>
+        </div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <pre>
+            <code>var host = document.querySelector('article');</code>
+            <code>var root = host.createShadowRoot();</code>
+            <code>root.appendChild(document.querySelector('template').<mark>content</mark>);</code>
+        </pre>
+        <h3><i class="icon-lightbulb"></i>Résultat</h3>
+        <figure>
+            <img class="fullscreen" src="imgs/shadow-insertion-point.png">
         </figure>
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
-        <figure class="center">
-            <img src="imgs/shadow-rendering.svg" class="fullscreen" alt="">
-            <figcaption><i class="icon-wrench"></i></figcaption>
+        <h3><i class="icon-code"></i>Points d’insertion</h3>
+        <pre>
+            <code>&lt;article&gt;</code>
+            <code>&lt;span class="firstname"&gt;Grégory&lt;/span&gt;</code>
+            <code>&lt;span class="company"&gt;Valtech&lt;/span&gt;</code>
+            <code>&lt;/article&gt;</code>
+        </pre>
+        <div class="next">
+            <h3><i class="icon-code"></i>Avec ce template</h3>
+            <pre>
+                <code>&lt;template&gt;</code>
+                <code>&lt;h2&gt;Bonjour &lt;content select=".firstname" /&gt;&lt;/h2&gt;</code>
+                <code>&lt;h3&gt;&lt;content select=".company" /&gt;&lt;/h3&gt;</code>
+                <code>&lt;/template&gt;</code>
+            </pre>
+        </div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <pre>
+            <code>var host = document.querySelector('article');</code>
+            <code>var root = host.createShadowRoot();</code>
+            <code>root.appendChild(document.querySelector('template').<mark>content</mark>);</code>
+        </pre>
+        <h3><i class="icon-lightbulb"></i>Résultat</h3>
+        <figure>
+            <img class="fullscreen" src="imgs/shadow-insertion-point-2.png">
         </figure>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <pre>
+            <code>&lt;h3&gt;Hello&lt;/h3&gt;</code>
+            <code>&lt;h3&gt;World&lt;/h3&gt;</code>
+        </pre>
+        <h3><i class="icon-wrench"></i>Surcharge du style du deuxième &lt;h3&gt;</h3>
+        <pre>
+            <code>var h3 = document.querySelector('<mark>h3+h3</mark>');</code>
+            <code>var root = h3.createShadowRoot();</code>
+            <code>root.<mark>innerHTML</mark> += <mark>'&lt;style&gt;h3{ color: red; }&lt;/style&gt;' +</mark></code>
+            <code>                  <mark>'&lt;h3&gt;Shadow DOM&lt;/h3&gt;'</mark>;</code>
+        </pre>
+        <h3 class="next"><i class="icon-attention"></i>Les styles ne sortent pas du "shadow root"</h3>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+        <pre>
+            <code>&lt;button&gt;Hello World&lt;/button&gt;</code>
+        </pre>
+        <h3><i class="icon-wrench"></i>:host</h3>
+        <pre>
+            <code>var button = document.querySelector('button');</code>
+            <code>var root = button.createShadowRoot();</code>
+            <code>root.innerHTML = <mark>'&lt;style&gt;'+ </mark></code>
+            <code>    <mark>'<mark class="important">:host</mark> { text-transform: uppercase; }' +</mark></code>
+            <code>    <mark>'<mark class="important">:host(:hover)</mark> { color: red; }' +</mark></code>
+            <code>    <mark>'&lt;/style&gt;' + </mark></code>
+            <code>    <mark>'<mark class="important">&lt;content&gt;&lt;/content&gt;</mark>'</mark>;</code>
+        </pre>
 	</div></section>
 
 	<section class="slide cover"><div>
