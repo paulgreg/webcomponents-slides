@@ -23,6 +23,13 @@
         .slide pre code         { line-height: 1.3em; }
         .slide abbr             { border-bottom: 1px dashed grey; }
         .slide i                { margin-right: 2px; }
+        .slide.polymer .logo { max-width: 80px; margin: 0 20px 0 0; }
+        .slide.support img                  { height: 60px; }
+        .slide.support td,
+        .slide.support th                   { border: 5px solid white; }
+        .slide.support td                   { background: linear-gradient(#FD1414, #CA1414),  repeat scroll 0% 0% transparent; border-spacing: 1px; width: 100px; }
+        .slide.support .supported           { background: linear-gradient(#5AE100, #35AF01) repeat scroll 0% 0% transparent; }
+        .slide.support .partial             { background: linear-gradient(#FC0, #FD8602) repeat scroll 0% 0% transparent; }
     </style>
 </head>
 <body class="list">
@@ -592,10 +599,127 @@
 	</div></section>
 
 	<section class="slide support"><div>
-        <iframe src="https://jonrimmer.github.io/are-we-componentized-yet/"></iframe>
-        <style>
-            .slide.support iframe { width: 1000px; height: 700px; position: absolute; top: 0; left: 10px; }
-        </style>
+		<h2>Support</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th class="center"><img src="imgs/safari_logo.png">
+                <th class="center"><img src="imgs/ff_logo.png">
+                <th class="center"><img src="imgs/chrome_logo.png">
+                <th class="center"><img src="imgs/opera_logo.png">
+                <th class="center"><img src="imgs/ie10_logo.png">
+            </tr>
+            <tr>
+                <th>Templates</th>
+                <td class="partial">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td>
+            </tr>
+            <tr>
+                <th>HTML Imports</th>
+                <td>
+                <td class="partial">
+                <td class="partial">
+                <td>
+                <td>
+            </tr>
+            <tr>
+                <th>Custom Elements</th>
+                <td>
+                <td class="partial">
+                <td class="supported">
+                <td>
+                <td>
+            </tr>
+            <tr>
+                <th>Shadow DOM</th>
+                <td>
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td>
+            </tr>
+        </table>
+        <p><a href="https://jonrimmer.github.io/are-we-componentized-yet/">https://jonrimmer.github.io/are-we-componentized-yet/</a></p>
+	</div></section>
+
+	<section class="slide"><div>
+        <h2>Polymer, X-Tags, Bosonic</h2>
+        <h3>Ces librairies proposent :</h3>
+        <ul>
+            <li>une couche "plateforme" (composé de <a href="https://fr.wikipedia.org/wiki/Polyfill">polyfills</a>),
+            <li>une couche pour la création d’éléments,
+            <li>une bibliothèque d’élément existants.
+        </ul>
+	</div></section>
+
+	<section class="slide support"><div>
+		<h2>Support via ces librairies</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th class="center"><img src="imgs/safari_logo.png">
+                <th class="center"><img src="imgs/ff_logo.png">
+                <th class="center"><img src="imgs/chrome_logo.png">
+                <th class="center"><img src="imgs/opera_logo.png">
+                <th class="center"><img src="imgs/ie10_logo.png">
+            </tr>
+            <tr>
+                <th>Templates</th>
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+            </tr>
+            <tr>
+                <th>HTML Imports</th>
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+            </tr>
+            <tr>
+                <th>Custom Elements</th>
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+            </tr>
+            <tr>
+                <th>Shadow DOM</th>
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+                <td class="supported">
+            </tr>
+        </table>
+        <p>enfin, en théorie...</p>
+	</div></section>
+
+	<section class="slide cover polymer"><div>
+        <h2><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer ?</h2>
+		<img src="imgs/lego-blue-2.jpg" alt="">
+	</div></section>
+	
+    <section class="slide polymer"><div>
+        <h2><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer</h2>
+        <ul>
+            <li>composant défini dans une page HTML (&lt;polymer-element&gt;),
+            <li class="next">regroupe les styles, les templates, le JavaScript,
+            <li class="next">facilement distribuable, réutilisable,
+            <li class="next">mais un peu "lourd".
+        </ul>
+        <p class="next">
+            Démos :
+            <a href="http://paulgreg.me/webcomponent-mappy/demo-polymer.html">&lt;mappy-element&gt;</a>,
+            <a href="https://addyosmani.github.io/fitc-wccdt/demos/components/video-camera-element/index.html">&lt;x-video&gt;</a>
+        </p>
 	</div></section>
 
 	<section class="slide cover"><div>
@@ -604,17 +728,17 @@
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>X-Tags : démo</h2>
-        <a href="https://github.com/csuwildcat/x-mario/blob/master/src/main.js">source</a>
-        <a href="http://www.backalleycoder.com/x-mario/demo/">démo</a>
-	</div></section>
-
-	<section class="slide cover polymer"><div>
-        <h2><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer ?</h2>
-		<img src="imgs/lego-blue-2.jpg" alt="">
-        <style>
-            .slide.polymer .logo { max-width: 80px; margin: 0 20px 0 0; }
-        </style>
+		<h2>X-Tags</h2>
+        <ul>
+            <li>approche via JavaScript pur (donc template, css dans le JS),
+            <li class="next">plus petit, plus direct que Polymer,
+            <li class="next">mais plus difficilement réutilisable (difficulté d’importer des librairies).
+        </ul>
+        <p class="next">
+            Démos :
+            <a href="http://paulgreg.me/webcomponent-mappy/demo-xtags.html">&lt;mappy-element&gt;</a>,
+            <a href="http://www.backalleycoder.com/x-mario/demo/">&lt;x-mario&gt;</a>
+        </p>
 	</div></section>
 
 	<section class="slide cover"><div>
@@ -623,8 +747,15 @@
 	</div></section>
 
 	<section class="slide cover"><div>
-		<h2>Démo</h2>
+		<h2>Conclusion</h2>
 		<img src="imgs/lego-red.jpg" alt="">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Conclusion</h2>
+        <ul>
+            <li>
+        </ul>
 	</div></section>
 
 	<section class="slide cover"><div>
