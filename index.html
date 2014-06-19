@@ -13,6 +13,8 @@
         .slide.cover h2         { color: white; }
         .slide.cover h2         { margin: 0; font-size:70px; text-shadow: 0px 3px 3px #666; }
         .slide a.clean          { background: none; }
+        .slide h2 a.clean       { color: #140F50; }
+        .slide.cover a.clean    { color: white; }
         .slide img.title        { position: relative; z-index: 1; }
         .slide img.fullscreen   { max-width: 880px; max-height: 475px; border: 1px solid #CCC; }
         .slide figcaption       { text-align: center; line-height: 20px; }
@@ -345,7 +347,7 @@
             <h3><i class="icon-wrench"></i>Création de Shadow DOM</h3>
             <pre>
                 <code>var host = document.querySelector('article');</code>
-                <code>var root = host.createShadowRoot();</code>
+                <code>var root = host.<mark>createShadowRoot()</mark>;</code>
                 <code>var title = document.createElement('h2');</code>
                 <code>title.textContent = 'Titre';</code>
                 <code>root.appendChild(title);</code>
@@ -395,7 +397,7 @@
             <h3><i class="icon-code"></i>Avec ce template</h3>
             <pre>
                 <code>&lt;template&gt;</code>
-                <code>&lt;h2&gt;Bonjour &lt;content /&gt;&lt;/h2&gt;</code>
+                <code>&lt;h2&gt;Bonjour <mark>&lt;content /&gt;</mark>&lt;/h2&gt;</code>
                 <code>&lt;/template&gt;</code>
             </pre>
         </div>
@@ -406,7 +408,7 @@
         <h3><i class="icon-code"></i>Points d’insertion 2/2</h3>
         <pre>
             <code>var root = document.querySelector('article').createShadowRoot();</code>
-            <code>root.appendChild(document.querySelector('template').<mark>content</mark>);</code>
+            <code>root.appendChild(document.querySelector('template').content);</code>
         </pre>
         <h3><i class="icon-lightbulb"></i>Résultat</h3>
         <figure>
@@ -427,8 +429,8 @@
             <h3><i class="icon-code"></i>Avec ce template</h3>
             <pre>
                 <code>&lt;template&gt;</code>
-                <code>&lt;h2&gt;Bonjour &lt;content select=".firstname" /&gt;&lt;/h2&gt;</code>
-                <code>&lt;h3&gt;&lt;content select=".company" /&gt;&lt;/h3&gt;</code>
+                <code>&lt;h2&gt;Bonjour <mark>&lt;content select=".firstname" /&gt;</mark>&lt;/h2&gt;</code>
+                <code>&lt;h3&gt;<mark>&lt;content select=".company" /&gt;</mark>&lt;/h3&gt;</code>
                 <code>&lt;/template&gt;</code>
             </pre>
         </div>
@@ -484,7 +486,7 @@
 	<section class="slide"><div>
 		<h2>Shadow DOM / Styles</h2>
         <pre>
-            <code>&lt;p class="<mark class="important">main</mark>"&gt;</code>
+            <code>&lt;p class="<mark>main</mark>"&gt;</code>
             <code>  &lt;button&gt;Hello World&lt;/button&gt;</code>
             <code>&lt;/p&gt;</code>
         </pre>
@@ -699,23 +701,24 @@
                 <td class="supported">
             </tr>
         </table>
-        <p>enfin, en théorie...</p>
+        <p class="next">enfin, en théorie...</p>
 	</div></section>
 
 	<section class="slide cover polymer"><div>
-        <h2><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer ?</h2>
+        <h2><a href="http://www.polymer-project.org/" class="clean"><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer</a> ?</h2>
 		<img src="imgs/lego-blue-2.jpg" alt="">
 	</div></section>
 	
     <section class="slide polymer"><div>
-        <h2><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer</h2>
+        <h2><a href="http://www.polymer-project.org/" class="clean"><img src="imgs/polymer-logo.svg" class="logo title" alt="">Polymer</a></h2>
         <ul>
             <li>composant défini dans une page HTML (&lt;polymer-element&gt;),
             <li class="next">regroupe les styles, les templates, le JavaScript,
             <li class="next">facilement distribuable, réutilisable,
-            <li class="next">mais un peu "lourd".
+            <li class="next">mais un peu "lourd",
+            <li class="next">Licence BSD.
         </ul>
-        <p class="next">
+        <p class="next"><i class="icon-cog-alt"></i>
             Démos :
             <a href="http://paulgreg.me/webcomponent-mappy/demo-polymer.html">&lt;mappy-element&gt;</a>,
             <a href="https://addyosmani.github.io/fitc-wccdt/demos/components/video-camera-element/index.html">&lt;x-video&gt;</a>
@@ -723,18 +726,19 @@
 	</div></section>
 
 	<section class="slide cover"><div>
-		<h2>X-Tags ?</h2>
+        <h2><a href="http://x-tags.org/" class="clean">X-Tags</a> ?</h2>
 		<img src="imgs/lego-green.jpg" alt="">
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>X-Tags</h2>
+        <h2><a href="http://x-tags.org/" class="clean">X-Tags</a></h2>
         <ul>
             <li>approche via JavaScript pur (donc template, css dans le JS),
             <li class="next">plus petit, plus direct que Polymer,
-            <li class="next">mais plus difficilement réutilisable (difficulté d’importer des librairies).
+            <li class="next">mais plus difficilement réutilisable (difficulté d’importer des librairies),
+            <li class="next">Licence Apache 2.0.
         </ul>
-        <p class="next">
+        <p class="next"><i class="icon-cog-alt"></i>
             Démos :
             <a href="http://paulgreg.me/webcomponent-mappy/demo-xtags.html">&lt;mappy-element&gt;</a>,
             <a href="http://www.backalleycoder.com/x-mario/demo/">&lt;x-mario&gt;</a>
@@ -742,24 +746,25 @@
 	</div></section>
 
 	<section class="slide cover"><div>
-        <h2><img src="imgs/bosonic.png" class="title" alt=""> ?</h2>
+        <h2><a href="https://bosonic.github.io" class="clean"><img src="imgs/bosonic.png" class="title" alt=""></a> ?</h2>
 		<img src="imgs/lego-yellow.jpg" alt="">
 	</div></section>
 
-	<section class="slide cover"><div>
-		<h2>Conclusion</h2>
-		<img src="imgs/lego-red.jpg" alt="">
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Conclusion</h2>
+	<section class="slide bosonic"><div>
+        <h2><a href="https://bosonic.github.io" class="clean"><img src="imgs/bosonic.png" class="title" alt=""></a></h2>
         <ul>
-            <li>enfin des vrais composants Web réutilisable !
-            <li class="next">une révolution dans la façon de concevoir ses applications web,
-            <li class="next">par contre, la peinture n’est pas encore fraîche
-            <li class="next">mais le web évolue vite maintenant,
-            <li class="next">soyez donc prêt quand ça arrivera (d’ici 1~2 ans).
+            <li>composant défini dans une page HTML (&lt;element&gt;),
+            <li class="next">"transpile" cette page en fichiers JS / CSS,
+                <img src="imgs/bosonic_howitworks.png">
+            <li class="next">Solution propre, très intéressante (mais phase de "transpilation"),
+            <li class="next">Prêt pour le TDD : Mocha, chai inclus,
+            <li class="next">Licence MIT.
         </ul>
+        <p class="next"><i class="icon-cog-alt"></i><a href="https://bosonic.github.io/demos.html">Démos</a> et <a href="https://github.com/bosonic/">sources</a> (<a href="https://github.com/paulgreg/webcomponent-mappy/blob/gh-pages/bosonic/src/mappy-element.html">&lt;mappy-element&gt;</a>)</p>
+        <style>
+            .slide.bosonic li img { max-height: 160px; display: block; }
+            .slide.bosonic ul     { margin: 0; }
+        </style>
 	</div></section>
 
 	<section class="slide cover"><div>
@@ -776,6 +781,26 @@
             <li><a href="http://customelements.io/">http://customelements.io/</a> : Catalogue de Web Components
             <li><a href="https://rsstodolist.appspot.com/?n=webcomponent">https://rsstodolist.appspot.com/?n=webcomponent</a> : flux RSS sur ce sujet
         </ul>
+	</div></section>
+
+	<section class="slide cover"><div>
+		<h2>Conclusion</h2>
+		<img src="imgs/lego-red.jpg" alt="">
+	</div></section>
+
+	<section class="slide conclusion"><div>
+		<h2>Conclusion</h2>
+        <ul>
+            <li><i class="icon-lightbulb"></i>Enfin des vrais composants Web réutilisables !
+            <li class="next"><i class="icon-attention"></i>Une petite révolution dans la façon de concevoir ses applications web,
+            <li class="next"><i class="icon-bug"></i>par contre, la peinture n’est pas encore fraîche,
+            <li class="next"><i class="icon-gauge"></i>mais le web évolue vite maintenant,
+            <li class="next"><i class="icon-wrench"></i>soyez donc prêt quand ça arrivera (d’ici 1~2 ans ?).
+        </ul>
+        <style>
+            .slide.conclusion li:before     { content: ""; }
+            .slide.conclusion li i:before   { display: inline; margin-right: .5em; }
+        </style>
 	</div></section>
 
 	<section class="slide cover qa"><div>
