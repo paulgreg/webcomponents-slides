@@ -227,8 +227,8 @@
         <h3><i class="icon-wrench"></i>Cycle de vie : exemple</h3>
         <pre>
             <code>var <mark>proto</mark> = Object.create(HTMLElement.prototype);</code>
-            <code>proto.<mark>createdCallback</mark> = alert.bind(this, 'instance créée');</code>
-            <code>proto.<mark>attachedCallback</mark> = alert.bind(this, 'attaché au DOM');</code>
+            <code>proto.<mark>createdCallback</mark> = alert.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind</a>(window, 'instance créée');</code>
+            <code>proto.<mark>attachedCallback</mark> = alert.bind(window, 'attachée au DOM');</code>
             <code>var XFoo = document.registerElement('x-foo', <mark>{</mark></code>
             <code>    <mark>prototype: proto</mark></code>
             <code><mark>}</mark>);</code>
@@ -272,7 +272,7 @@
         <pre>
             <code>&lt;<mark>template</mark> id="mytemplate"&gt;</code>
             <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
-            <code>  &lt;img src=""&gt;</code>
+            <code>  &lt;img src="http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png"&gt;</code>
             <code>&lt;/<mark>template</mark>&gt;</code>
         </pre>
         <small><i class="icon-lightbulb"></i>Parsé mais pas rendu (&lt;script&gt; pas lancé, &lt;img&gt; pas chargées, etc)</small>
@@ -296,14 +296,14 @@
         <h3><i class="icon-wrench"></i>createDocumentFragment</h3>
         <pre>
             <code>var <mark>docfrag</mark> = <mark class="important">document.createDocumentFragment()</mark>;</code>
-            <code>["IE", "FF", "Chrome"].forEach(function(e) {</code>
+            <code>["IE", "FF", "Chrome"].forEach(function(browser) {</code>
             <code>  var li = document.createElement("li");</code>
-            <code>  li.textContent = e;</code>
+            <code>  li.textContent = browser;</code>
             <code>  <mark>docfrag</mark>.appendChild(li);</code>
             <code>});</code>
             <code>var ul = document.createElement("ul");</code>
-            <code>document.body.appendChild(ul);</code>
             <code>ul.appendChild(<mark>docfrag</mark>);</code>
+            <code>document.body.appendChild(ul);</code>
         </pre>
         <h3><i class="icon-gauge"></i>660 ops/s vs 15,414 ops/s <small>(<a href="http://jsperf.com/document-createdocumentfragment">test sur JsPerf</a>)</small></h3>
 	</div></section>
@@ -452,14 +452,14 @@
 		<h2>Shadow DOM / Styles</h2>
         <pre>
             <code>&lt;h3&gt;Hello&lt;/h3&gt;</code>
-            <code>&lt;h3&gt;World&lt;/h3&gt;</code>
         </pre>
-        <h3><i class="icon-wrench"></i>Surcharge du style du deuxième &lt;h3&gt;</h3>
+        <h3><i class="icon-wrench"></i>Surcharge du style d’un deuxième &lt;h3&gt;</h3>
         <pre>
-            <code>var h3 = document.querySelector('<mark>h3+h3</mark>');</code>
+            <code>var h3 = document.createElement('h3');</code>
+            <code>document.body.appendChild(h3);</code>
             <code>var root = h3.createShadowRoot();</code>
-            <code>root.<mark>innerHTML</mark> += <mark>'&lt;style&gt;h3{ color: red; }&lt;/style&gt;' +</mark></code>
-            <code>                  <mark>'<mark class="important">&lt;content&gt;&lt;/content&gt;</mark>'</mark>;</code>
+            <code>root.innerHTML = <mark>'&lt;style&gt;<mark class="important">h3</mark> { color: red; }&lt;/style&gt;' +</mark></code>
+            <code>                 <mark>'&lt;h3&gt;Shadow DOM&lt;/h3&gt;'</mark>;</code>
         </pre>
         <h3 class="next"><i class="icon-attention"></i>Les styles ne sortent pas du <i>"shadow root"</i></h3>
 	</div></section>
@@ -648,11 +648,11 @@
 
 	<section class="slide"><div>
         <h2>Polymer, X-Tags, Bosonic</h2>
-        <h3>Ces librairies proposent :</h3>
+        <h3 class="next">Ces librairies proposent :</h3>
         <ul>
-            <li>une couche "plateforme" (composé de <a href="https://fr.wikipedia.org/wiki/Polyfill">polyfills</a>),
-            <li>une couche pour la création d’éléments,
-            <li>une bibliothèque d’élément existants.
+            <li class="next">une couche "plateforme" (composé de <a href="https://fr.wikipedia.org/wiki/Polyfill">polyfills</a>),
+            <li class="next">une couche pour la création d’éléments,
+            <li class="next">une bibliothèque d’élément existants.
         </ul>
 	</div></section>
 
