@@ -9,29 +9,32 @@
     <link rel="stylesheet" href="./css/fontello.css">
     <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
     <style>
-        .slide > div            { padding: 60px 84px 0px; width: 856px; height: 582px; }
-        .slide.cover h2         { color: white; }
-        .slide.cover h2         { margin: 0; font-size:70px; text-shadow: 0px 3px 3px #666; }
-        .slide a.clean          { background: none; }
-        .slide h2 a.clean       { color: #140F50; }
-        .slide.cover a.clean    { color: white; }
-        .slide img.title        { position: relative; z-index: 1; }
-        .slide img.fullscreen   { max-width: 880px; max-height: 475px; border: 1px solid #CCC; }
-        .slide figcaption       { text-align: center; line-height: 20px; }
-        .slide .center          { text-align: center; }
-        .slide pre              { margin: 0; }
-        .slide h2               { color: #140F50; }
-        .slide h3               { margin: 20px 0 0 0; color: #530600; font-size: 30px; }
-        .slide pre code         { line-height: 1.3em; }
-        .slide abbr             { border-bottom: 1px dashed grey; }
-        .slide i                { margin-right: 2px; }
-        .slide.polymer .logo { max-width: 80px; margin: 0 20px 0 0; }
-        .slide.support img                  { height: 60px; }
+        .slide > div                { padding: 60px 84px 0px; width: 856px; height: 582px; }
+        .slide.cover h2             { color: white; }
+        .slide.cover h2             { margin: 0; font-size:70px; text-shadow: 0px 3px 3px #666; }
+        .slide a.clean              { background: none; }
+        .slide h2 a.clean           { color: #140F50; }
+        .slide.cover a.clean        { color: white; }
+        .slide img.title            { position: relative; z-index: 1; }
+        .slide img.fullscreen       { max-width: 880px; max-height: 475px; border: 1px solid #CCC; }
+        .slide figcaption           { text-align: center; line-height: 20px; }
+        .slide .center              { text-align: center; }
+        .slide pre                  { margin: 0; }
+        .slide h2                   { color: #140F50; }
+        .slide h3                   { margin: 20px 0 0 0; color: #530600; font-size: 30px; }
+        .slide pre code             { line-height: 1.3em; }
+        .slide abbr                 { border-bottom: 1px dashed grey; }
+        .slide i                    { margin-right: 2px; }
+        .slide.polymer .logo        { max-width: 80px; margin: 0 20px 0 0; }
+        .slide.support img          { height: 60px; }
         .slide.support td,
-        .slide.support th                   { border: 5px solid white; }
-        .slide.support td                   { background: linear-gradient(#FD1414, #CA1414),  repeat scroll 0% 0% transparent; border-spacing: 1px; width: 100px; }
-        .slide.support .supported           { background: linear-gradient(#5AE100, #35AF01) repeat scroll 0% 0% transparent; }
-        .slide.support .partial             { background: linear-gradient(#FC0, #FD8602) repeat scroll 0% 0% transparent; }
+        .slide.support th           { border: 5px solid white; }
+        .slide.support td           { background: linear-gradient(#FD1414, #CA1414),  repeat scroll 0% 0% transparent; border-spacing: 1px; width: 100px; }
+        .slide.support .supported   { background: linear-gradient(#5AE100, #35AF01) repeat scroll 0% 0% transparent; }
+        .slide.support .partial     { background: linear-gradient(#FC0, #FD8602) repeat scroll 0% 0% transparent; }
+        .slide.before.template ul   { margin-top: 1em; }
+        .slide.before.template li:before      { content: "";}
+        .slide.before.template li i:before    { display: inline; margin-right: .5em; }
     </style>
 </head>
 <body class="list">
@@ -266,6 +269,36 @@
 		<img src="imgs/lego-green.jpg" alt="">
 	</div></section>
 
+	<section class="slide before template"><div>
+		<h2>Templates</h2>
+        <h3><i class="icon-attention"></i>Template aujourd’hui</h3>
+        <pre>
+            <code>&lt;<mark>div</mark> id="mytemplate" <mark>class="hidden"</mark>&gt;</code>
+            <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
+            <code>  &lt;img src="http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png"&gt;</code>
+            <code>&lt;/<mark>div</mark>&gt;</code>
+        </pre>
+        <ul>
+            <li class="next"><i class="icon-lightbulb"></i>C’est du DOM,</small>
+            <li class="next"><i class="icon-bug"></i>mais les resources sont chargées,</small>
+            <li class="next"><i class="icon-bug"></i>et il faut penser à le cacher puis l’afficher.</small>
+        </ul>
+	</div></section>
+
+	<section class="slide before template"><div>
+		<h2>Templates</h2>
+        <h3><i class="icon-attention"></i>Template aujourd’hui</h3>
+        <pre>
+            <code>&lt;<mark>script</mark> id="mytemplate" <mark>type="text/x-handlebars-template"</mark>&gt;</code>
+            <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
+            <code>  &lt;img src="http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png"&gt;</code>
+            <code>&lt;/<mark>script</mark>&gt;</code>
+        </pre>
+        <ul>
+            <li class="next"><i class="icon-bug"></i>Parsing au runtime (<code>.innerHTML</code>), vulnérable aux attaques XSS.</small>
+        </ul>
+	</div></section>
+
 	<section class="slide template"><div>
 		<h2>Templates</h2>
         <h3><i class="icon-code"></i>&lt;template&gt;</h3>
@@ -275,7 +308,7 @@
             <code>  &lt;img src="http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png"&gt;</code>
             <code>&lt;/<mark>template</mark>&gt;</code>
         </pre>
-        <small><i class="icon-lightbulb"></i>Parsé mais pas rendu (&lt;script&gt; pas lancé, &lt;img&gt; pas chargées, etc)</small>
+        <small><i class="icon-lightbulb"></i>Parsé (DOM) mais pas rendu (&lt;script&gt; pas lancé, &lt;img&gt; pas chargées, etc)</small>
         <div class="next">
             <h3><i class="icon-wrench"></i>utilisation</h3>
             <pre>
@@ -286,8 +319,8 @@
             </pre>
         </div>
         <style>
-            .slide.template small { margin: 5px 0; }
-            .slide.template div h3 { margin-top: 0; }
+            .slide.template small       { margin: 5px 0; }
+            .slide.template div h3      { margin-top: 0; }
         </style>
 	</div></section>
 
