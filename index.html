@@ -166,7 +166,7 @@
             <code>      <mark>value: function() {</mark></code>
             <code>        <mark>alert('foo() called');</mark></code>
             <code>      <mark>}</mark></code>
-            <code>    }</code>
+            <code>    <mark>}</mark></code>
             <code>  })</code>
             <code>});</code>
         </pre>
@@ -177,7 +177,7 @@
         <h3><i class="icon-wrench"></i>Surcharge</h3>
         <pre>
             <code>var MegaButton = document.registerElement('<mark>mega-button</mark>', {</code>
-            <code>  prototype: Object.create(<mark>HTMLButtonElement.prototype</mark>),</code>
+            <code>  prototype: Object.create(<mark>HTML<mark class="important">Button</mark>Element.prototype</mark>),</code>
             <code>  <mark>extends: 'button'</mark></code>
             <code>});</code>
             <code>var megabtn = document.createElement('button', 'mega-button');</code>
@@ -271,7 +271,7 @@
 
 	<section class="slide before template"><div>
 		<h2>Templates</h2>
-        <h3><i class="icon-attention"></i>Template aujourd’hui</h3>
+        <h3><i class="icon-attention"></i>Templates tel que vous y êtes sûrement habitué...</h3>
         <pre>
             <code>&lt;<mark>div</mark> id="mytemplate" <mark>class="hidden"</mark>&gt;</code>
             <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
@@ -287,7 +287,7 @@
 
 	<section class="slide before template"><div>
 		<h2>Templates</h2>
-        <h3><i class="icon-attention"></i>Template aujourd’hui</h3>
+        <h3><i class="icon-attention"></i>Templates tel que vous y êtes sûrement habitué...</h3>
         <pre>
             <code>&lt;<mark>script</mark> id="mytemplate" <mark>type="text/x-handlebars-template"</mark>&gt;</code>
             <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
@@ -301,7 +301,7 @@
 
 	<section class="slide template"><div>
 		<h2>Templates</h2>
-        <h3><i class="icon-code"></i>&lt;template&gt;</h3>
+        <h3><i class="icon-code"></i>De &laquo;vrais&raquo; &lt;template&gt;</h3>
         <pre>
             <code>&lt;<mark>template</mark> id="mytemplate"&gt;</code>
             <code>  &lt;strong&gt;&lt;/strong&gt;&lt;br&gt;</code>
