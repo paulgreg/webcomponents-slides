@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var XFoo = document.registerElement('x-foo', {
+              prototype: Object.create(HTMLElement.prototype, {
+                bar: {
+                  get: function() { return 5; }
+                },
+                foo: {
+                  value: function() {
+                    alert('foo() called');
+                  }
+                }
+              })
+            });
+            xfoo = new XFoo();
+        </script>
+    </body>
+</html>

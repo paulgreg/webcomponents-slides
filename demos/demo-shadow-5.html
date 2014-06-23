@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <h3>Hello</h3>
+        <script>
+            var h3 = document.createElement('h3');
+            document.body.appendChild(h3);
+            var root = h3.createShadowRoot();
+            root.innerHTML = '<style>h3 { color: red; }</style>' +
+                             '<h3>Shadow DOM</h3>';
+        </script>
+    </body>
+</html>

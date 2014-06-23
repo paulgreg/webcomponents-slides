@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var XFoo = document.registerElement('x-foo', {
+                prototype: Object.create(HTMLElement.prototype)
+            });
+            document.body.appendChild(new XFoo());
+        </script>
+    </body>
+</html>

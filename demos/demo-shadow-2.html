@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <article>Hello, world!</article>
+        <script>
+            var host = document.querySelector('article');
+            var root = host.createShadowRoot();
+            root.textContent = 'Bonjour !';
+        </script>
+        <script>
+            console.log(document.querySelector('article').textContent);
+        </script>
+    </body>
+</html>

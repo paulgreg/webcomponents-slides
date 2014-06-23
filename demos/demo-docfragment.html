@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var docfrag = document.createDocumentFragment();
+            ["IE", "FF", "Chrome"].forEach(function(browser) {
+              var li = document.createElement("li");
+              li.textContent = browser;
+              docfrag.appendChild(li);
+            });
+            var ul = document.createElement("ul");
+            ul.appendChild(docfrag);
+            document.body.appendChild(ul);
+        </script>
+    </body>
+</html>

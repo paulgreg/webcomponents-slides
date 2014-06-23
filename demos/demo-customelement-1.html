@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var XFoo = document.registerElement('x-foo');
+        </script>
+
+        <x-foo></x-foo>
+
+        <script>
+            document.body.appendChild(document.createElement('x-foo'));
+            document.body.appendChild(new XFoo());
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            var proto = Object.create(HTMLElement.prototype);
+            proto.createdCallback = alert.bind(window, 'instance créée');
+            proto.attachedCallback = alert.bind(window, 'attachée au DOM');
+            var XFoo = document.registerElement('x-foo', {
+                prototype: proto
+            });
+            var xfoo = new XFoo();
+            document.body.appendChild(xfoo);
+        </script>
+    </body>
+</html>

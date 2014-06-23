@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var proto = Object.create(HTMLElement.prototype);
+            proto.createdCallback = function() {
+               this.innerHTML = 'Je suis x-foo !';
+            };
+            var XFoo = document.registerElement('x-foo', {
+                prototype: proto
+            });
+            var xfoo = new XFoo();
+            document.body.appendChild(xfoo);
+        </script>
+    </body>
+</html>

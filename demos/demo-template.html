@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+
+        <template id="mytemplate">
+            <strong></strong><br>
+            <img src="http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png">
+        </template>
+
+        <script>
+            var t = document.querySelector('#mytemplate');
+            t.content.querySelector('strong').textContent = 'Hello, I am';
+            t.content.querySelector('img').src = 'http://www.valtech.fr/sites/all/themes/valtech/logo.png';
+            document.body.appendChild(t.content.cloneNode(true));
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <article></article>
+        <script>
+            var host = document.querySelector('article');
+            var root = host.createShadowRoot();
+            var title = document.createElement('h2');
+            title.textContent = 'Titre';
+            root.appendChild(title);
+        </script>
+    </body>
+</html>

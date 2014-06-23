@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <button></button>
+        <script>
+            var button = document.querySelector('button');
+            var root = button.createShadowRoot();
+            root.innerHTML = '<span>Shadow DOM<span>';
+            var span = document.querySelector('button::shadow span');
+            console.log(span.textContent);
+        </script>
+    </body>
+</html>

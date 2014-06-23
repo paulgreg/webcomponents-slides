@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <button>Hello World</button>
+        <script>
+            var button = document.querySelector('button');
+            var root = button.createShadowRoot();
+            root.innerHTML = '<style>'+
+                ':host { text-transform: uppercase; }' +
+                ':host(:hover) { font-weight: bold; }' +
+                '</style>' + 
+                '<content></content>';
+        </script>
+    </body>
+</html>

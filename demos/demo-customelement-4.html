@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var MegaButton = document.registerElement('mega-button', {
+              prototype: Object.create(HTMLButtonElement.prototype),
+              extends: 'button'
+            });
+            var megabtn = document.createElement('button', 'mega-button');
+            megabtn.innerText = "Mega button";
+            document.body.appendChild(megabtn);
+        </script>
+    </body>
+</html>

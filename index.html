@@ -25,6 +25,8 @@
         .slide pre code             { line-height: 1.3em; }
         .slide abbr                 { border-bottom: 1px dashed grey; }
         .slide i                    { margin-right: 2px; }
+        .slide .demo                { right: 1em; bottom: -1em; position: absolute; }
+        .list .icon-link-ext        { display: none; }
         .slide.polymer .logo        { max-width: 80px; margin: 0 20px 0 0; }
         .slide.support img          { height: 60px; }
         .slide.support td,
@@ -137,6 +139,7 @@
             <span>ou encore</span>
             <pre><code>document.body.appendChild(<mark>new XFoo()</mark>);</code></pre>
         </div>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-customelement-1.html" target="blank">démo</a></a>
         <style>
             .slide.custom-basic span    { color: #333; font-style: italic; }
         </style>
@@ -151,6 +154,7 @@
             <code><mark>}</mark>);</code>
             <code>document.body.appendChild(new XFoo());</code>
         </pre>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-customelement-2.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide compat"><div>
@@ -178,6 +182,7 @@
             <code>  })</code>
             <code>});</code>
         </pre>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-customelement-3.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -192,6 +197,7 @@
             <code>megabtn.innerText = "Mega button";</code>
             <code>document.body.appendChild(megabtn);</code>
         </pre>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-customelement-4.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -246,6 +252,7 @@
             <code>var xfoo = new XFoo();</code>
             <code>document.body.appendChild(xfoo);</code>
         </pre>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-customelement-5.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -262,6 +269,7 @@
             <code>var xfoo = new XFoo();</code>
             <code>document.body.appendChild(xfoo);</code>
         </pre>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-customelement-6.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -326,6 +334,7 @@
                 <code>document.body.appendChild(t.content.<mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node.cloneNode">cloneNode</a></mark>(true));</code>
             </pre>
         </div>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-template.html" target="blank">démo</a></a>
         <style>
             .slide.template small       { margin: 5px 0; }
             .slide.template div h3      { margin-top: 0; }
@@ -347,6 +356,7 @@
             <code>document.body.appendChild(ul);</code>
         </pre>
         <h3><i class="icon-gauge"></i>660 ops/s vs 15,414 ops/s <small>(<a href="http://jsperf.com/document-createdocumentfragment">jQuery vs documentFragment</a>)</small></h3>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-docfragment.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide cover"><div>
@@ -393,6 +403,7 @@
                 <code>root.appendChild(title);</code>
             </pre>
         </div>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-1.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -423,6 +434,7 @@
                 <code>document.querySelector('article').textContent;</code>
             </pre>
         </div>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-2.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -454,6 +466,7 @@
         <figure>
             <img class="fullscreen" src="imgs/shadow-insertion-point.png" alt="">
         </figure>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-3.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -487,6 +500,7 @@
         <figure>
             <img class="fullscreen" src="imgs/shadow-insertion-point-2.png" alt="">
         </figure>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-4.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -503,6 +517,7 @@
             <code>                 <mark>'&lt;h3&gt;Shadow DOM&lt;/h3&gt;'</mark>;</code>
         </pre>
         <h3 class="next"><i class="icon-attention"></i>Les styles ne sortent pas du <i>"shadow root"</i></h3>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-5.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -521,6 +536,7 @@
             <code>    <mark>'&lt;content&gt;&lt;/content&gt;'</mark>;</code>
         </pre>
         <h3 class="next"><i class="icon-lightbulb"></i><i>host</i> permet de styler le noeud</h3>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-6.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -540,6 +556,7 @@
             <code>    <mark>'&lt;content&gt;&lt;/content&gt;'</mark>;</code>
         </pre>
         <h3 class="next"><i class="icon-lightbulb"></i><i>host-context</i> s’applique à tous les noeuds parents</h3>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-7.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -559,6 +576,7 @@
             <code>    <mark>'&lt;content&gt;&lt;/content&gt;'</mark>;</code>
         </pre>
         <h3 class="next"><i class="icon-attention"></i>Ne fonctionne pas car le parent ne contient pas la classe <i>main</i></h3>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-8.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -581,6 +599,7 @@
                 <code>&lt;/style&gt;</code>
             </pre>
         </div>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-9.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -605,6 +624,7 @@
             <code>var span = document.<mark>querySelector('button<mark class="important">::shadow</mark> span')</mark>;</code>
             <code>span.textContent</code>
         </pre>
+        <p class="demo"><i class="icon-link-ext"><a href="demos/demo-shadow-10.html" target="blank">démo</a></a>
 	</div></section>
 
 	<section class="slide cover"><div>
@@ -833,7 +853,7 @@
         <ul>
             <li><i class="icon-lightbulb"></i>Enfin des vrais composants Web réutilisables !
             <li class="next"><i class="icon-attention"></i>Une petite révolution dans la façon de concevoir ses applications web,
-            <li class="next"><i class="icon-bug"></i>par contre, la peinture n’est pas encore fraîche,
+            <li class="next"><i class="icon-bug"></i>par contre, la peinture est fraîche,
             <li class="next"><i class="icon-gauge"></i>mais le web évolue vite maintenant,
             <li class="next"><i class="icon-wrench"></i>soyez donc prêt quand ça arrivera (d’ici 1~2 ans ?).
         </ul>
